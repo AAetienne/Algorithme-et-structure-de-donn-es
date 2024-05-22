@@ -13,19 +13,26 @@ class Solution:
     # Function to return the sorted array.
     def nearlySorted(self, a, n, k):
         # code here
-        for i in range(1, n):
-            # on prend l'élément à la position i
-            key = a[i]
-            # on revient un position en arrière
-            j = i - 1
+        tas = []
+        result = []
 
-            # on commence au premier élément
-            # et on le compare avec l'element qui le précède
-            while j >= 0 and a[j] > key:
-                a[j + 1] = a[j]
-                j -= 1
-            a[j + 1] = key
-        return a
+        """on traite les k+1 premiers elements du tableau
+        la fonction heapq.heappush trie le tableau et met les petits
+        elements devant et les grands après"""
+        for i in range(min(k + 1, n)):
+            heapq.heappush(tas, a[i])
+
+        # maintenant on traite les autres elements du tableau
+        # de k+1 à n
+        for i in range(k + 1, n):
+            heapq.heappush(tas, a[i])
+
+            # ensuite on vide le tas
+            # le tas est vidé en commençant par le plus petit
+        while tas:
+            result.append(heapq.heappop(tas))
+
+        return result
 
 
 # {
