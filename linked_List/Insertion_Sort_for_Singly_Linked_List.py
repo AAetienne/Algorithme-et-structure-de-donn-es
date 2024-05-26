@@ -1,5 +1,7 @@
 # User function Template for python3
-
+import atexit
+import io
+import sys
 '''
 # Node Class
 class Node:
@@ -38,7 +40,8 @@ class Solution:
 
     def sortedInsert(self, sortedHead, new_node):
         # Si la liste triée est vide ou si le nouvel élément doit être inséré en tête
-        if sortedHead is None and sortedHead.data >= new_node.data:
+        # chnager le and en or dans le if
+        if sortedHead is None or sortedHead.data >= new_node.data:
             new_node.next = sortedHead
             sortedHead = new_node
         else:
@@ -56,9 +59,7 @@ class Solution:
 # Driver Code Starts
 # Initial Template for Python 3
 
-import atexit
-import io
-import sys
+
 
 _INPUT_LINES = sys.stdin.read().splitlines()
 input = iter(_INPUT_LINES).__next__
@@ -72,7 +73,7 @@ def write():
 
 
 # Node Class
-INF = float("inf")
+#INF = float("inf")
 
 
 class Node:
@@ -96,14 +97,18 @@ if __name__ == '__main__':
     t = int(input())
     for cases in range(t):
         n = int(input())
-        a = Node(INF)
+        #a = Node(INF)
         nodes = list(map(int, input().strip().split()))
-        ptr = a
-        for x in nodes:
-            ptr.next = Node(INF)
-            ptr = ptr.next
-            ptr.data = x
-        a = a.next
+        #ptr = a
+        # liste chainée
+        if len(nodes) == 0:
+            a = None
+        else:
+            a = Node(nodes[0])
+            ptr = a
+            for x in nodes[1:]:
+                ptr.next = Node(x)
+                ptr = ptr.next
         ob = Solution()
         head = ob.insertionSort(a)
         printList(head)
