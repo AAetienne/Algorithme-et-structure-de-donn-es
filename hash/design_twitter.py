@@ -18,7 +18,7 @@ class Twitter:
     # Retrieve the 10 most recent tweet ids as mentioned in question
     def getNewsFeed(self, userId: int):
         # Code here
-        
+
         pass
 
 
