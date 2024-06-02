@@ -48,7 +48,7 @@ class Solution():
             slow = slow.next
             fast = fast.next.next
 
-        """ici on garde la valeur du noeud et on"""
+        """ici on garde la valeur du noeud"""
         temp = slow.next
         slow.next = None
         if temp is None:

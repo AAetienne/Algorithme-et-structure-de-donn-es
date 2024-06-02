@@ -40,7 +40,6 @@ class Solution:
 
     def sortedInsert(self, sortedHead, new_node):
         # Si la liste triée est vide ou si le nouvel élément doit être inséré en tête
-        # chnager le and en or dans le if
         if sortedHead is None or sortedHead.data >= new_node.data:
             new_node.next = sortedHead
             sortedHead = new_node

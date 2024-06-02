@@ -5,9 +5,6 @@ import sys
 import heapq
 from collections import defaultdict
 
-"""dans ce code on ne co,sidère pas le k, on precede par
-comparaison de l'element qui précède celui qu'o étudie"""
-
 class Solution:
 
     # Function to return the sorted array.

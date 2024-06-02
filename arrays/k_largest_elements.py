@@ -12,7 +12,6 @@ class Solution:
         len(li) -1 jusqu'à l'element len(li) - k -1 par pas de -1"""
         for i in range(len(li) - 1, len(li) - k - 1, -1):
             result.append(temp_array[i])
-            #i -= 1
 
         return result
 
