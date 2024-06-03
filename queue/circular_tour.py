@@ -22,7 +22,9 @@ class Solution:
 
         return -1"""
 
-        """fonctionne sur le site mais ne fonctionne pas ici"""
+
+        """fonctionne sur le site mais ne fonctionne pas ici
+        !!! fonctionne après avoir modifié la valeur autour de laquelle on fait la boucle"""
 
         start = 0
         total_petrol = 0
@@ -33,7 +35,7 @@ class Solution:
             total_petrol += lis[i][0]
             total_distance += lis[i][1]
             current_petrol += lis[i][0] - lis[i][1]
- 
+
             # If current petrol becomes negative, reset start to the next position
             if current_petrol < 0:
                 start = i + 1
@@ -54,7 +56,8 @@ if __name__ == '__main__':
         n = int(input())
         arr = list(map(int, input().strip().split()))
         lis = []
-        for i in range(1, 2 * n, 2):
+        # j'ai modifié la valeur sur laquelle il faut boucler
+        for i in range(n):
             lis.append([arr[i - 1], arr[i]])
         print(Solution().tour(lis, n))
     # Contributed by: Harshit Sidhwa
