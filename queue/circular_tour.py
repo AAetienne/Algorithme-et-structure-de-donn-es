@@ -36,12 +36,10 @@ class Solution:
             total_distance += lis[i][1]
             current_petrol += lis[i][0] - lis[i][1]
 
-            # If current petrol becomes negative, reset start to the next position
             if current_petrol < 0:
                 start = i + 1
                 current_petrol = 0
 
-        # If total petrol is greater than or equal to total distance, return start index
         if total_petrol >= total_distance:
             return start
         else:
